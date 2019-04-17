@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "topthink/think-orm": "^2.0"
+        "topthink/think-orm": "dev-master"
     },
     "autoload": {
         "psr-4": {

@@ -29,7 +29,7 @@ class Inspect
             return true;
         }
 
-        // 获取权限id
+        // 获取权限
         $rule = (new Rule())->getRowByName($url);
         if (!$rule) {
             Functions::outputQueryExceptions($url . '权限不存在');
