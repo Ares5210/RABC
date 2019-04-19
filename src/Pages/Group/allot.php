@@ -20,7 +20,7 @@
                 <div class="layui-card-body">
                     <?php $access = isset($res['rules']) ? explode(',', $res['rules']) : array() ?>
                     <form id="uploadForm" class="layui-form" method="post" lay-filter="component-form-group">
-                        <table class="layui-table layui-form">
+                        <table class="layui-table">
                             <tbody>
                             <?php
                             for ($row = 1; $row <= $data['rows']; $row++) {
