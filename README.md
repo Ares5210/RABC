@@ -1,28 +1,50 @@
-<h1 align="center"> rabc </h1>
+<h1 align="center"> RABC </h1>
 
-<p align="center"> A rabc sdk.</p>
+<p align="center">🤗基于layui傻瓜式的RABC。</p>
 
-
-## Installing
+## 安装
 
 ```shell
 $ composer require ares/rabc -vvv
 ```
 
-## Usage
+## 使用
 
-TODO
+目前前台样式只支持layui。
 
-## Contributing
+```php
+use Ares\Rabc\Rabc;
 
-You can contribute in one of three ways:
+Rabc::setConfig([
+    'db' => [ // 数据库配置
+        'type' => 'mysql',
+        'hostname' => 'host',
+        'database' => 'name',
+        'username' => 'user',
+        'password' => 'password',
+        'hostport' => 'port',
+        'charset' => 'charset'
+    ],
+    'SuperAdminId' => array(1), // 超级管理员
+    'WhiteList' => array('/index/home', '/'), // 白名单
+    'GroupTable' => 'auth_group', // 角色表
+    'AccessTable' => 'auth_group_access', // 管理员与角色关系表
+    'RuleTable' => 'auth_rule', // 权限表
+    'StylePath' => '/static/layuiadmin/', // layui样式地址
+]);
+```
 
-1. File bug reports using the [issue tracker](https://github.com/ares/rabc/issues).
-2. Answer questions or fix bugs on the [issue tracker](https://github.com/ares/rabc/issues).
-3. Contribute new features or update the wiki.
+### 检查权限
+```php
+if (Rabc::check($url, $user_id, $isId)) {
+    exit('您没有权限访问此功能~');
+}
+// $url string 权限url
+// $user_id int 用户id
+// $isId bool url后面是否带有id，为true则可以过滤掉，比如：/user/info/1
+```
 
-_The code contribution process is not very formal. You just need to make sure that you follow the PSR-0, PSR-1, and PSR-2 coding guidelines. Any new code contributions must be accompanied by unit tests where applicable._
-
-## License
-
-MIT
+### 获取菜单
+```php
+Rabc::menu($this->user_id)
+```
