@@ -10,6 +10,7 @@ namespace Ares\Rabc;
 
 use Ares\Rabc\Auth\Inspect;
 use Ares\Rabc\Control\Group;
+use Ares\Rabc\Control\Rule;
 
 /**
  * Class Rabc
@@ -22,11 +23,11 @@ use Ares\Rabc\Control\Group;
  * @method Group group_open() 角色启用
  * @method Group group_close() 角色关闭
  * @method Group group_allot() 分配权限
- * @method Group rule_index() 权限列表
- * @method Group rule_add() 权限添加
- * @method Group rule_edit() 权限修改
- * @method Group rule_close() 删除权限
- * @method Group rule_child() 添加子权限
+ * @method Rule rule_index() 权限列表
+ * @method Rule rule_add() 权限添加
+ * @method Rule rule_edit() 权限修改
+ * @method Rule rule_close() 删除权限
+ * @method Rule rule_child() 添加子权限
  */
 class Rabc
 {
